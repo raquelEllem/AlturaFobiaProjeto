@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/elevador-cena.unity
+  isLoaded: 1
+  isActive: 1
