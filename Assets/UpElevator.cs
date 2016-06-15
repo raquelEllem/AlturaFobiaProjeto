@@ -10,8 +10,9 @@ public class UpElevator : MonoBehaviour
     public bool um;
     public bool dois;
     public bool tres;
-
-    public bool check;
+    public bool descUm;
+    public bool descDois;
+    public bool descTres;
 
     public Transform terreo;
     public Transform primeiroAndar;
@@ -19,8 +20,6 @@ public class UpElevator : MonoBehaviour
     public Transform terceiroAndar;
 
     public float speed;
-    float aux;
-          
 
     public GameObject botao;
 
@@ -32,33 +31,51 @@ public class UpElevator : MonoBehaviour
     {
 
         /***** DESCE ****/
-        // elevador desce para o terreo
-        if (descendo == true && um == false)
+        if (descendo == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, terreo.transform.position, speed * Time.deltaTime);
+            // 1º andar
+            if (descUm == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, terreo.transform.position, speed * Time.deltaTime);
+            }
+
+            // 2º andar
+            if (descDois == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, primeiroAndar.transform.position, speed * Time.deltaTime);
+            }
+
+            // 3º andar
+            if (descTres == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, segundoAndar.transform.position, speed * Time.deltaTime);
+            }
         }
 
-
-        // elevador desce para o 1º andar
-        if (descendo == true && dois == false)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, primeiroAndar.transform.position, speed * Time.deltaTime);
-        }
 
         /***** SOBE ****/
-        // elevador sobe para o 1º andar
-        if (subindo == true && um == true)
+        if (subindo == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, primeiroAndar.transform.position, speed * Time.deltaTime);
+            // 1º andar
+            if (um == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, primeiroAndar.transform.position, speed * Time.deltaTime);
+            }
+
+            // 2º andar
+            if (dois == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, segundoAndar.transform.position, speed * Time.deltaTime);
+            }
+
+            // 3º andar
+            if (tres == true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, terceiroAndar.transform.position, speed * Time.deltaTime);
+            }
         }
-
-        // elevador sobe para o 2º andar
-        if (subindo == true && dois == true)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, segundoAndar.transform.position, speed * Time.deltaTime);
-        }
-
-
+       
+        
         /***** CONTROLA BOTÃO *****/
         // se o elevador estiver parado o botão fica vermelho
         if (transform.position == terreo.transform.position || transform.position == primeiroAndar.transform.position || transform.position == segundoAndar.transform.position || transform.position == terceiroAndar.transform.position)
@@ -85,10 +102,17 @@ public class UpElevator : MonoBehaviour
             {
                 subindo = true;
                 descendo = false;
+
+                descUm = false;
+                descDois = false;
+                descTres = false;
+
                 // 1° andar
                 if (transform.position == terreo.transform.position)
                 {
                     um = true;
+                    dois = false;
+                    tres = false;
                 }
 
                 // 2° andar
@@ -96,6 +120,15 @@ public class UpElevator : MonoBehaviour
                 {                    
                     um = false;
                     dois = true;
+                    tres = false;
+                }
+
+                // 3° andar
+                if (transform.position == segundoAndar.transform.position)
+                {
+                    um = false;
+                    dois = false;
+                    tres = true;
                 }
             }
 
@@ -104,22 +137,40 @@ public class UpElevator : MonoBehaviour
             {
                 subindo = false;
                 descendo = true;
-                
-                // terreo
+
+                um = false;
+                dois = false;
+                tres = false;
+
+                // 1° andar
                 if (transform.position == primeiroAndar.transform.position)
                 {
-                    um = false;
+                    descUm = true;
+                    descDois = false;
+                    descTres = false;
                 }
 
-                //1° andar
+                // 2° andar
                 if (transform.position == segundoAndar.transform.position)
                 {
-                    dois = false;
+                    descUm = false;
+                    descDois = true;
+                    descTres = false;
+                }
+
+                // 3° andar
+                if (transform.position == terceiroAndar.transform.position)
+                {
+                    descUm = false;
+                    descDois = false;
+                    descTres = true;
                 }
 
             }//fim da tecla
 
         }//fim parado
+
+
     }
 }
 
