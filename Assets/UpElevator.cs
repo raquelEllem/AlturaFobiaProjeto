@@ -23,8 +23,6 @@ public class UpElevator : MonoBehaviour
 
     public GameObject botao;
 
-    Collision colisao;
-
 
     // com FixedUpdate não fica travando
     void FixedUpdate()

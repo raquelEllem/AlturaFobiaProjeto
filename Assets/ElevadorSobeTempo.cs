@@ -11,29 +11,44 @@ public class ElevadorSobeTempo : MonoBehaviour {
 
     // controle
     public bool subir;
+    public bool descer;
     public bool parar;
+
+
+    public GameObject botao;
 
     // Use this for initialization
     void Start () {
         subir = false;
         parar = false;
+        descer = false;
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
         // se clicar no 'u' começa a subir
         if (Input.GetKeyDown("e"))
         {
             subir = true;
             parar = false;
+            descer = false;
         }
 
         // se clicar 'p' para a subida
         if (Input.GetKeyDown("p"))
         {
             parar = true;
+            subir = false;
+            descer = false;
+        }
+
+        // se clicar 'l' desce
+        if (Input.GetKeyDown("l"))
+        {
+            descer = true;
+            parar = false;
             subir = false;
         }
 
@@ -44,12 +59,19 @@ public class ElevadorSobeTempo : MonoBehaviour {
             VelocidadeAtual = VelocidadeAtual + VelocidadeAceleracao / 10 * Time.deltaTime;
         }
 
+        //começa a descer
+        if (descer == true)
+        {
+            VelocidadeAtual = VelocidadeAtual + VelocidadeAceleracao / 10 * Time.deltaTime;
+            transform.Translate(0, -VelocidadeAtual, 0);
+ 
+        }
+
         //começa a desacelerar e para
         if(parar == true)
         {
             VelocidadeAtual = VelocidadeAtual - VelocidadeDesaceleracao * Time.deltaTime;
             transform.Translate(0, 0, 0);
-
         }
 
         //limita a velocidade
@@ -64,5 +86,17 @@ public class ElevadorSobeTempo : MonoBehaviour {
             VelocidadeAtual = 0;
         }
 
-	}
+        /***** CONTROLA BOTÃO *****/
+        // se o elevador estiver subindo/descendo o botão fica verde
+        if (descer == true || subir == true)
+        {
+            botao.GetComponent<Renderer>().materials[0].color = Color.green;
+        }
+        else
+        {
+            //se o elevador estiver parado o botão fica vermelho
+            botao.GetComponent<Renderer>().materials[0].color = Color.red;
+        }
+
+    }
 }
