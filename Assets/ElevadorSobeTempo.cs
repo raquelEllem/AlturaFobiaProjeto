@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ElevadorSobeTempo : MonoBehaviour {
+public class ElevadorSobeTempo : MonoBehaviour
+{
 
     // controla a velocidades do elevador
     public float VelocidadeAceleracao;
@@ -9,25 +10,32 @@ public class ElevadorSobeTempo : MonoBehaviour {
     public float VelocidadeDesaceleracao;
     public float VelocidadeMax;
 
+    float aux;
     // controle
     public bool subir;
     public bool descer;
     public bool parar;
 
+    public bool check;
+
 
     public GameObject botao;
+    Collision colisao;
+
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         subir = false;
         parar = false;
         descer = false;
 
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-	
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
         // se clicar no 'u' começa a subir
         if (Input.GetKeyDown("e"))
         {
@@ -57,18 +65,18 @@ public class ElevadorSobeTempo : MonoBehaviour {
         {
             transform.Translate(0, VelocidadeAtual, 0);
             VelocidadeAtual = VelocidadeAtual + VelocidadeAceleracao / 10 * Time.deltaTime;
+            parar = false;
         }
-
+        
         //começa a descer
         if (descer == true)
         {
             VelocidadeAtual = VelocidadeAtual + VelocidadeAceleracao / 10 * Time.deltaTime;
             transform.Translate(0, -VelocidadeAtual, 0);
- 
         }
 
         //começa a desacelerar e para
-        if(parar == true)
+        if (parar == true)
         {
             VelocidadeAtual = VelocidadeAtual - VelocidadeDesaceleracao * Time.deltaTime;
             transform.Translate(0, 0, 0);
@@ -98,5 +106,17 @@ public class ElevadorSobeTempo : MonoBehaviour {
             botao.GetComponent<Renderer>().materials[0].color = Color.red;
         }
 
+        // não passar do chão
+        aux = transform.position.y;
+        if (aux < 0.022)
+        {
+            parar = true;
+            descer = false;
+        }
+
+
     }
+
+
+
 }
