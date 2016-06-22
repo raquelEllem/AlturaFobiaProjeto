@@ -38858,12 +38858,6 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
         <para>In the web player on Windows.</para>
       </summary>
     </member>
-    <member name="F:UnityEngine.RuntimePlatform.WP8Player">
-      <summary>
-        <para>In the player on Windows Phone 8 device.
-</para>
-      </summary>
-    </member>
     <member name="F:UnityEngine.RuntimePlatform.WSAPlayerARM">
       <summary>
         <para>In the player on Windows Store Apps when CPU architecture is ARM.</para>
