@@ -36,8 +36,8 @@ public class ElevadorSobeTempo : MonoBehaviour
     void FixedUpdate()
     {
 
-        // se clicar no 'u' começa a subir
-        if (Input.GetKeyDown("e"))
+        // se clicar no 'o' começa a subir
+        if (Input.GetKeyDown("o"))
         {
             subir = true;
             parar = false;
@@ -108,7 +108,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
         // não passar do chão
         aux = transform.position.y;
-        if (aux < 0.022)
+        if (aux < 3.95)
         {
        
             parar = true;
