@@ -75,12 +75,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CarroAndar.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
+    <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\Scripts\Carro.cs" />
     <Compile Include="Assets\Scripts\ElevadorSobeTempo.cs" />
     <Compile Include="Assets\Scripts\InitialPosition.cs" />
     <Compile Include="Assets\Scripts\UpElevator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Mixamo\Fuse\ReadMe.txt" />
     <None Include="Assets\Sky\README.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
