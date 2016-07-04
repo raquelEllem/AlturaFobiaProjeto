@@ -10,6 +10,7 @@ public class Carro : MonoBehaviour {
     public float VelocidadeMax;
     float tempo;
 
+
     bool andar;
 
     // Use this for initialization
@@ -34,12 +35,12 @@ public class Carro : MonoBehaviour {
             transform.Translate(VelocidadeAtual, 0, 0);
         }
 
-
         //evitar que o carro vá para tras a qualquer momento
         if (VelocidadeAtual < 0)
         {
             VelocidadeAtual = 0;
         }
+
 
     }
 }
