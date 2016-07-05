@@ -1,22 +1,27 @@
 fileFormatVersion: 2
-guid: 9ff29810af1676d4291518481327896d
-timeCreated: 1466779699
+guid: 80831e5a368fcd247bf7eb69b2717a18
+timeCreated: 1467667510
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: City:The_City:bldgs2
-    100004: City:The_City:mesh01
-    400000: //RootNode
-    400002: City:The_City:bldgs2
-    400004: City:The_City:mesh01
-    2300000: City:The_City:bldgs2
-    2300002: City:The_City:mesh01
-    3300000: City:The_City:bldgs2
-    3300002: City:The_City:mesh01
+    100000: Building_Hero
+    100002: //RootNode
+    100004: City:The_City:bldgs2
+    100006: City:The_City:mesh01
+    400000: Building_Hero
+    400002: //RootNode
+    400004: City:The_City:bldgs2
+    400006: City:The_City:mesh01
+    2300000: Building_Hero
+    2300002: City:The_City:bldgs2
+    2300004: City:The_City:mesh01
+    3300000: Building_Hero
+    3300002: City:The_City:bldgs2
+    3300004: City:The_City:mesh01
     4300000: City:The_City:mesh01
     4300002: City:The_City:bldgs2
+    4300004: Building_Hero
     9500000: //RootNode
   materials:
     importMaterials: 1
