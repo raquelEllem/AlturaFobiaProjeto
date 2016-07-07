@@ -51,6 +51,8 @@ public class ElevadorSobeTempo : MonoBehaviour
         descer = false;
 
         contadorAndar = 0;
+      
+
 
         // ANDARES
         NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
@@ -350,7 +352,7 @@ public class ElevadorSobeTempo : MonoBehaviour
                 NumDir3.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir2.GetComponent<Renderer>().materials[0].color = Color.white;
-                NumDir2.transform.Translate(0, 0, 1/500);
+                NumDir2.transform.Translate(0, 0, 1);
                 break;
 
             case 3:
