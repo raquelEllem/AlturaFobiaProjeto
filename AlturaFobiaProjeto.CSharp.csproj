@@ -83,8 +83,10 @@
     <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Carros\Sports Car Multiple textures\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\Scripts\AENoah.cs" />
     <Compile Include="Assets\Scripts\Carro.cs" />
     <Compile Include="Assets\Scripts\ElevadorSobeTempo.cs" />
+    <Compile Include="Assets\Scripts\EstadoNoah.cs" />
     <Compile Include="Assets\Scripts\InitialPosition.cs" />
     <Compile Include="Assets\Scripts\PortaElevador.cs" />
     <Compile Include="Assets\Scripts\UpElevator.cs" />
@@ -97,6 +99,7 @@
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\Textures\Laboratórios Baffi.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

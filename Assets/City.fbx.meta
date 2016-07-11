@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 80831e5a368fcd247bf7eb69b2717a18
-timeCreated: 1467667510
+guid: 8fb9c1bccb479974abc3cf7f692aad1c
+timeCreated: 1468086355
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,19 +9,29 @@ ModelImporter:
     100002: //RootNode
     100004: City:The_City:bldgs2
     100006: City:The_City:mesh01
+    100008: Sidewalks
+    100010: Street_Stripes
     400000: Building_Hero
     400002: //RootNode
     400004: City:The_City:bldgs2
     400006: City:The_City:mesh01
+    400008: Sidewalks
+    400010: Street_Stripes
     2300000: Building_Hero
     2300002: City:The_City:bldgs2
     2300004: City:The_City:mesh01
+    2300006: Sidewalks
+    2300008: Street_Stripes
     3300000: Building_Hero
     3300002: City:The_City:bldgs2
     3300004: City:The_City:mesh01
+    3300006: Sidewalks
+    3300008: Street_Stripes
     4300000: City:The_City:mesh01
     4300002: City:The_City:bldgs2
     4300004: Building_Hero
+    4300006: Sidewalks
+    4300008: Street_Stripes
     9500000: //RootNode
   materials:
     importMaterials: 1
