@@ -47,6 +47,7 @@ public class PortaElevador : MonoBehaviour {
         if (!Usuario)
         {
             Usuario = GameObject.Find("FPSController");
+            
         }
         else
         {
@@ -86,11 +87,7 @@ public class PortaElevador : MonoBehaviour {
             } 
         }
 
-        //if (fechar == true)
-        //{
-        //    tempo += Time.deltaTime;
-        //}
-
+        // depois de entrar no elevador e passar 2 segundos a porta fecha
         if (fechar == true && abrir == false && tempo >= 2)
         {
             animacaoFecharEsq.Play("fecharEsq");
@@ -101,13 +98,7 @@ public class PortaElevador : MonoBehaviour {
 
         }
 
-        // tempo += Time.deltaTime;
-
-        //if (tempo >= 2)
-        //{
-        //    fechar = true;
-        //}
-
+ 
     }
 
 }
