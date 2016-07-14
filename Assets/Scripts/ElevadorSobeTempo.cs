@@ -20,6 +20,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
     public bool check;
 
+    public GameObject NumDir0;
     public GameObject NumDir1;
     public GameObject NumDir2;
     public GameObject NumDir3;
@@ -29,7 +30,8 @@ public class ElevadorSobeTempo : MonoBehaviour
     public GameObject NumDir7;
     public GameObject NumDir8;
     public GameObject NumDir9;
-    
+
+    public GameObject NumEsq0;
     public GameObject NumEsq1;
     public GameObject NumEsq2;
     public GameObject NumEsq3;
@@ -51,10 +53,11 @@ public class ElevadorSobeTempo : MonoBehaviour
         descer = false;
 
         contadorAndar = 0;
-      
+
 
 
         // ANDARES
+        NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumDir2.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumDir3.GetComponent<Renderer>().materials[0].color = Color.clear;
@@ -65,6 +68,7 @@ public class ElevadorSobeTempo : MonoBehaviour
         NumDir8.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumDir9.GetComponent<Renderer>().materials[0].color = Color.clear;
 
+        NumEsq0.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumEsq1.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumEsq2.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumEsq3.GetComponent<Renderer>().materials[0].color = Color.clear;
@@ -156,7 +160,12 @@ public class ElevadorSobeTempo : MonoBehaviour
 
 
         /******* POSIÇÃO DOS ANDARES - TOTAL: 30 andares **********/
-
+        //terreo
+        if (aux >= 5.8 && aux <= 8)
+        {
+            contadorAndar = 0;
+        }
+        
         //1º andar
         if (aux >= 8 && aux <= 10.6)
         {
@@ -341,8 +350,15 @@ public class ElevadorSobeTempo : MonoBehaviour
         /****** LUZ ACENDE DE ACORDO COM O ANDAR ATUAL  ********************/
         switch (contadorAndar)
         {
+            case 0:
+                NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
+
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
+                break;
+
             case 1:
                 NumDir2.GetComponent<Renderer>().materials[0].color = Color.clear;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.white;
                 break;
@@ -352,7 +368,7 @@ public class ElevadorSobeTempo : MonoBehaviour
                 NumDir3.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir2.GetComponent<Renderer>().materials[0].color = Color.white;
-                NumDir2.transform.Translate(0, 0, 1);
+             
                 break;
 
             case 3:
@@ -399,7 +415,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
             case 9:
                 NumDir8.GetComponent<Renderer>().materials[0].color = Color.clear;
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumEsq1.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir9.GetComponent<Renderer>().materials[0].color = Color.white;
@@ -409,12 +425,12 @@ public class ElevadorSobeTempo : MonoBehaviour
                 NumDir9.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
 
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
                 NumEsq1.GetComponent<Renderer>().materials[0].color = Color.white;
                 break;
 
             case 11:
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumDir2.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.white;
@@ -479,7 +495,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
             case 19:
                 NumDir8.GetComponent<Renderer>().materials[0].color = Color.clear;
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumEsq2.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir9.GetComponent<Renderer>().materials[0].color = Color.white;
@@ -488,7 +504,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
             case 20:
                 NumDir9.GetComponent<Renderer>().materials[0].color = Color.clear;
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumEsq1.GetComponent<Renderer>().materials[0].color = Color.clear;
@@ -496,7 +512,7 @@ public class ElevadorSobeTempo : MonoBehaviour
                 break;
 
             case 21:
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumDir2.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.white;
@@ -561,7 +577,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
             case 29:
                 NumDir8.GetComponent<Renderer>().materials[0].color = Color.clear;
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumEsq3.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir9.GetComponent<Renderer>().materials[0].color = Color.white;
@@ -570,7 +586,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
             case 30:
                 NumDir9.GetComponent<Renderer>().materials[0].color = Color.clear;
-                //NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
+                NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
                 NumEsq2.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumEsq3.GetComponent<Renderer>().materials[0].color = Color.white;
                 break;

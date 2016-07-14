@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3690b539236edc54489a5841bd0101c0
-timeCreated: 1467666915
+timeCreated: 1468416335
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -32,25 +32,27 @@ ModelImporter:
     100048: Info_Pannel
     100050: Lights_00
     100052: Lights_01
-    100054: Num_1
-    100056: Num_1 1
-    100058: Num_2
-    100060: Num_2 1
-    100062: Num_3
-    100064: Num_3 1
-    100066: Num_4
-    100068: Num_4 1
-    100070: Num_5
-    100072: Num_5 1
-    100074: Num_6
-    100076: Num_6 1
-    100078: Num_7
-    100080: Num_7 1
-    100082: Num_8
-    100084: Num_8 1
-    100086: Num_9
-    100088: Num_9 1
-    100090: Pannel
+    100054: Num_0
+    100056: Num_0 1
+    100058: Num_1
+    100060: Num_1 1
+    100062: Num_2
+    100064: Num_2 1
+    100066: Num_3
+    100068: Num_3 1
+    100070: Num_4
+    100072: Num_4 1
+    100074: Num_5
+    100076: Num_5 1
+    100078: Num_6
+    100080: Num_6 1
+    100082: Num_7
+    100084: Num_7 1
+    100086: Num_8
+    100088: Num_8 1
+    100090: Num_9
+    100092: Num_9 1
+    100094: Pannel
     400000: Bar_Handle
     400002: Button_00
     400004: Button_01
@@ -78,25 +80,27 @@ ModelImporter:
     400048: Info_Pannel
     400050: Lights_00
     400052: Lights_01
-    400054: Num_1
-    400056: Num_1 1
-    400058: Num_2
-    400060: Num_2 1
-    400062: Num_3
-    400064: Num_3 1
-    400066: Num_4
-    400068: Num_4 1
-    400070: Num_5
-    400072: Num_5 1
-    400074: Num_6
-    400076: Num_6 1
-    400078: Num_7
-    400080: Num_7 1
-    400082: Num_8
-    400084: Num_8 1
-    400086: Num_9
-    400088: Num_9 1
-    400090: Pannel
+    400054: Num_0
+    400056: Num_0 1
+    400058: Num_1
+    400060: Num_1 1
+    400062: Num_2
+    400064: Num_2 1
+    400066: Num_3
+    400068: Num_3 1
+    400070: Num_4
+    400072: Num_4 1
+    400074: Num_5
+    400076: Num_5 1
+    400078: Num_6
+    400080: Num_6 1
+    400082: Num_7
+    400084: Num_7 1
+    400086: Num_8
+    400088: Num_8 1
+    400090: Num_9
+    400092: Num_9 1
+    400094: Pannel
     2300000: Bar_Handle
     2300002: Button_00
     2300004: Button_01
@@ -121,25 +125,27 @@ ModelImporter:
     2300042: Info_Pannel
     2300044: Lights_00
     2300046: Lights_01
-    2300048: Num_1
-    2300050: Num_1 1
-    2300052: Num_2
-    2300054: Num_2 1
-    2300056: Num_3
-    2300058: Num_3 1
-    2300060: Num_4
-    2300062: Num_4 1
-    2300064: Num_5
-    2300066: Num_5 1
-    2300068: Num_6
-    2300070: Num_6 1
-    2300072: Num_7
-    2300074: Num_7 1
-    2300076: Num_8
-    2300078: Num_8 1
-    2300080: Num_9
-    2300082: Num_9 1
-    2300084: Pannel
+    2300048: Num_0
+    2300050: Num_0 1
+    2300052: Num_1
+    2300054: Num_1 1
+    2300056: Num_2
+    2300058: Num_2 1
+    2300060: Num_3
+    2300062: Num_3 1
+    2300064: Num_4
+    2300066: Num_4 1
+    2300068: Num_5
+    2300070: Num_5 1
+    2300072: Num_6
+    2300074: Num_6 1
+    2300076: Num_7
+    2300078: Num_7 1
+    2300080: Num_8
+    2300082: Num_8 1
+    2300084: Num_9
+    2300086: Num_9 1
+    2300088: Pannel
     3300000: Bar_Handle
     3300002: Button_00
     3300004: Button_01
@@ -164,25 +170,27 @@ ModelImporter:
     3300042: Info_Pannel
     3300044: Lights_00
     3300046: Lights_01
-    3300048: Num_1
-    3300050: Num_1 1
-    3300052: Num_2
-    3300054: Num_2 1
-    3300056: Num_3
-    3300058: Num_3 1
-    3300060: Num_4
-    3300062: Num_4 1
-    3300064: Num_5
-    3300066: Num_5 1
-    3300068: Num_6
-    3300070: Num_6 1
-    3300072: Num_7
-    3300074: Num_7 1
-    3300076: Num_8
-    3300078: Num_8 1
-    3300080: Num_9
-    3300082: Num_9 1
-    3300084: Pannel
+    3300048: Num_0
+    3300050: Num_0 1
+    3300052: Num_1
+    3300054: Num_1 1
+    3300056: Num_2
+    3300058: Num_2 1
+    3300060: Num_3
+    3300062: Num_3 1
+    3300064: Num_4
+    3300066: Num_4 1
+    3300068: Num_5
+    3300070: Num_5 1
+    3300072: Num_6
+    3300074: Num_6 1
+    3300076: Num_7
+    3300078: Num_7 1
+    3300080: Num_8
+    3300082: Num_8 1
+    3300084: Num_9
+    3300086: Num_9 1
+    3300088: Pannel
     4300000: Elevator_Box
     4300002: Glass_00
     4300004: Glass_01
@@ -208,25 +216,26 @@ ModelImporter:
     4300044: Button_13
     4300046: Button_14
     4300048: Info_Pannel
-    4300050: Num_1
-    4300052: Num_2
-    4300054: Num_3
-    4300056: Num_4
-    4300058: Num_5
-    4300060: Num_6
-    4300062: Num_7
-    4300064: Num_8
-    4300066: Num_9
-    4300068: Num_1
-    4300070: Num_2
-    4300072: Num_3
-    4300074: Num_4
-    4300076: Num_5
-    4300078: Num_6
-    4300080: Num_7
-    4300082: Num_8
-    4300084: Num_9
-    9500000: //RootNode
+    4300050: Num_0
+    4300052: Num_1
+    4300054: Num_2
+    4300056: Num_3
+    4300058: Num_4
+    4300060: Num_5
+    4300062: Num_6
+    4300064: Num_7
+    4300066: Num_8
+    4300068: Num_9
+    4300070: Num_0
+    4300072: Num_1
+    4300074: Num_2
+    4300076: Num_3
+    4300078: Num_4
+    4300080: Num_5
+    4300082: Num_6
+    4300084: Num_7
+    4300086: Num_8
+    4300088: Num_9
   materials:
     importMaterials: 1
     materialName: 0
@@ -285,7 +294,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
