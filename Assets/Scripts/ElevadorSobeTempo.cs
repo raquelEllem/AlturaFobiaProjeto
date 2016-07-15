@@ -13,6 +13,7 @@ public class ElevadorSobeTempo : MonoBehaviour
     float aux;
     int contadorAndar;
 
+
     // controle
     public bool subir;
     public bool descer;
@@ -54,7 +55,7 @@ public class ElevadorSobeTempo : MonoBehaviour
 
         contadorAndar = 0;
 
-
+        NumDir0.transform.position += Vector3.left * 2;
 
         // ANDARES
         NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
@@ -92,7 +93,7 @@ public class ElevadorSobeTempo : MonoBehaviour
             descer = false;
         }
 
-        // se clicar 'p' para a subida
+        // se clicar 'p' pausa a subida
         if (Input.GetKeyDown("p"))
         {
             parar = true;
@@ -146,7 +147,6 @@ public class ElevadorSobeTempo : MonoBehaviour
         aux = transform.position.y;
         if (aux < 5.40)
         {
-       
             parar = true;
             descer = false;
         }
@@ -157,7 +157,6 @@ public class ElevadorSobeTempo : MonoBehaviour
             parar = true;
             subir = false;
         }
-
 
         /******* POSIÇÃO DOS ANDARES - TOTAL: 30 andares **********/
         //terreo
@@ -346,11 +345,14 @@ public class ElevadorSobeTempo : MonoBehaviour
             contadorAndar = 30;
         }
 
+        
 
         /****** LUZ ACENDE DE ACORDO COM O ANDAR ATUAL  ********************/
         switch (contadorAndar)
         {
             case 0:
+                NumDir0.transform.position += Vector3.left / 2;
+
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
@@ -361,9 +363,12 @@ public class ElevadorSobeTempo : MonoBehaviour
                 NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.white;
+                
                 break;
 
             case 2:
+               
+
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
                 NumDir3.GetComponent<Renderer>().materials[0].color = Color.clear;
 

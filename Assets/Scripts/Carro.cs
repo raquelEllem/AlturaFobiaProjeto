@@ -22,9 +22,14 @@ public class Carro : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        tempo += Time.deltaTime;
+        //tempo += Time.deltaTime;
 
-        if (tempo > 5)
+        //if (tempo > 5)
+        //{
+        //    andar = true;
+        //}
+
+        if (Input.GetKeyDown("c"))
         {
             andar = true;
         }
@@ -41,6 +46,10 @@ public class Carro : MonoBehaviour {
             VelocidadeAtual = 0;
         }
 
+        if (VelocidadeAtual >= VelocidadeMax)
+        {
+            VelocidadeAtual = VelocidadeMax;
+        }
 
     }
 }
