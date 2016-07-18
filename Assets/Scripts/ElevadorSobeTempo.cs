@@ -55,8 +55,6 @@ public class ElevadorSobeTempo : MonoBehaviour
 
         contadorAndar = 0;
 
-        NumDir0.transform.position += Vector3.left * 2;
-
         // ANDARES
         NumDir0.GetComponent<Renderer>().materials[0].color = Color.clear;
         NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
@@ -351,8 +349,6 @@ public class ElevadorSobeTempo : MonoBehaviour
         switch (contadorAndar)
         {
             case 0:
-                NumDir0.transform.position += Vector3.left / 2;
-
                 NumDir1.GetComponent<Renderer>().materials[0].color = Color.clear;
 
                 NumDir0.GetComponent<Renderer>().materials[0].color = Color.white;
