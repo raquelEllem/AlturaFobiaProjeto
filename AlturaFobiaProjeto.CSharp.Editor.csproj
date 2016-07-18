@@ -131,6 +131,13 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Textures\Laboratórios Baffi.txt" />
+    <None Include="Assets\ZRNAssets\005030_06196_1_1\Documents\ReadMe.txt" />
+    <None Include="Assets\ZRNAssets\005030_06196_1_1\Shaders\su_Zmap_DoubleSide.shader" />
+    <None Include="Assets\ZRNAssets\005030_06196_1_1\Shaders\su_Zmap_river02.shader" />
+    <None Include="Assets\ZRNAssets\005030_06196_1_1\Shaders\su_Zmap_way.shader" />
+    <None Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\Documents\ReadMe.txt" />
+    <None Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\license_en.txt" />
+    <None Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\license_jp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
