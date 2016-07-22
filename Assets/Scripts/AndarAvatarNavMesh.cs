@@ -8,11 +8,14 @@ public class AndarAvatarNavMesh : MonoBehaviour {
     NavMeshAgent AuxPosicaoNavMesh;
     Animation animacao;
 
+    Vector3 posicaoInicial;
+
     public bool check;
 
 
 	// Use this for initialization
 	void Start () {
+        posicaoInicial = Avatar.transform.position;
 
         AuxPosicaoNavMesh = transform.GetComponent<NavMeshAgent>();
 
@@ -25,9 +28,9 @@ public class AndarAvatarNavMesh : MonoBehaviour {
         AuxPosicaoNavMesh.destination = Ponto.position;
 
         //se o avatar estiver a 1 metro de distancia do ponto a animação para
-        if(Vector3.Distance (Avatar.transform.position, Ponto.transform.position) <= 1)
+        if(Vector3.Distance (Avatar.transform.position, Ponto.position) <= 1)
         {
-           // animacao.Stop();
+            Avatar.transform.position = posicaoInicial;
         }
 	}
 }
