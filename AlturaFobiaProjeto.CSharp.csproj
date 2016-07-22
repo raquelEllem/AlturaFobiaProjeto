@@ -75,6 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AndarCarro.cs" />
     <Compile Include="Assets\Scripts\AndarNoah.cs" />
     <Compile Include="Assets\Scripts\Carro.cs" />
     <Compile Include="Assets\Scripts\ElevadorSobeTempo.cs" />
