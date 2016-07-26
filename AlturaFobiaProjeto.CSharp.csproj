@@ -78,6 +78,8 @@
     <Compile Include="Assets\Scripts\AndarAvatarNavMesh.cs" />
     <Compile Include="Assets\Scripts\AndarCarroCidade.cs" />
     <Compile Include="Assets\Scripts\AndarCarroPonte.cs" />
+    <Compile Include="Assets\Scripts\AtirarBolas.cs" />
+    <Compile Include="Assets\Scripts\Bola.cs" />
     <Compile Include="Assets\Scripts\Carro.cs" />
     <Compile Include="Assets\Scripts\ElevadorSobeTempo.cs" />
     <Compile Include="Assets\Scripts\InitialPosition.cs" />
