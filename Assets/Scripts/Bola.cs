@@ -3,10 +3,7 @@ using System.Collections;
 
 public class Bola : MonoBehaviour {
 
-    public bool check;
     public Rigidbody rB;
-
-    Collider colisao;
 
 
 	// Use this for initialization
@@ -30,29 +27,26 @@ public class Bola : MonoBehaviour {
         //{
         //    Destroy(gameObject);
         //}
+;
 
 	}
 
-    //void OnCollisionEnter (Collision colisao) {
-
-    //    //destroi bolas que colidem com alguma coisa
-    //    //Destroy(gameObject);
-
-    //    if (colisao.gameObject.tag == "alvo")
-    //    {
-    //        check = true;
-    //    }
-
-    //}
-
-    void OnTriggerEnter (Collider other)
+    void OnCollisionEnter(Collision colisao)
     {
-        if (other.gameObject.CompareTag("alvo"))
+
+        //destroi bolas que colidem com alguma coisa
+        //Destroy(gameObject);
+
+        if (colisao.gameObject.tag == "alvo")
         {
-            check = true;
+            //Destroy(gameObject);
+            gameObject.GetComponent<Renderer>().materials[0].color = Color.blue;
         }
+
     }
 
-     
+
+
+
 }
 
