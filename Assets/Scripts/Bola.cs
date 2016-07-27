@@ -3,7 +3,11 @@ using System.Collections;
 
 public class Bola : MonoBehaviour {
 
+    public bool check;
     public Rigidbody rB;
+
+    Collider colisao;
+
 
 	// Use this for initialization
 	void Start () {
@@ -22,17 +26,31 @@ public class Bola : MonoBehaviour {
 
         //se tiver qualquer coisa a 1 metro a frente do centro da bola (raycast)
         // a bola é destruida
-        if (Physics.Raycast(transform.position, transform.forward, 1))
-        {
-            Destroy(gameObject);
-        }
+        //if (Physics.Raycast(transform.position, transform.forward, 1))
+        //{
+        //    Destroy(gameObject);
+        //}
 
 	}
 
-    void OnCollisionEnter (Collision colisao) {
+    //void OnCollisionEnter (Collision colisao) {
 
-        //destroi bolas que colidem com alguma coisa
-        Destroy(gameObject);
+    //    //destroi bolas que colidem com alguma coisa
+    //    //Destroy(gameObject);
+
+    //    if (colisao.gameObject.tag == "alvo")
+    //    {
+    //        check = true;
+    //    }
+
+    //}
+
+    void OnTriggerEnter (Collider other)
+    {
+        if (other.gameObject.CompareTag("alvo"))
+        {
+            check = true;
+        }
     }
 
      

@@ -75,6 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AlvoIA.cs" />
     <Compile Include="Assets\Scripts\AndarAvatarNavMesh.cs" />
     <Compile Include="Assets\Scripts\AndarCarroCidade.cs" />
     <Compile Include="Assets\Scripts\AndarCarroPonte.cs" />
