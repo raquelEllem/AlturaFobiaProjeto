@@ -86,8 +86,7 @@
     <Compile Include="Assets\Scripts\InitialPosition.cs" />
     <Compile Include="Assets\Scripts\PortaElevador.cs" />
     <Compile Include="Assets\Scripts\UpElevator.cs" />
-    <Compile Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\Fukuoka_Props\Dashi\Scripts\RotateProp.cs" />
-    <Compile Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\Fukuoka_Props\Sounds\MatsuriSoundController.cs" />
+    <Compile Include="Assets\ZRNAssets\Cars\Scripts\AICarMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mixamo\Fuse\ReadMe.txt" />
@@ -110,9 +109,9 @@
     <None Include="Assets\ZRNAssets\005030_06196_1_1\Shaders\su_Zmap_DoubleSide.shader" />
     <None Include="Assets\ZRNAssets\005030_06196_1_1\Shaders\su_Zmap_river02.shader" />
     <None Include="Assets\ZRNAssets\005030_06196_1_1\Shaders\su_Zmap_way.shader" />
-    <None Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\Documents\ReadMe.txt" />
-    <None Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\license_en.txt" />
-    <None Include="Assets\ZRNAssets\PQAssets\Query-Chan-SD\license_jp.txt" />
+    <None Include="Assets\ZRNAssets\Skyboxes\_skybox info.txt" />
+    <None Include="Assets\ZRNAssets\license_en.txt" />
+    <None Include="Assets\ZRNAssets\license_jp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

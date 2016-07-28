@@ -7,13 +7,12 @@
 // Shader created with Shader Forge v1.04 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.04;sub:START;pass:START;ps:flbk:,lico:1,lgpr:1,nrmq:1,limd:2,uamb:True,mssp:True,lmpd:True,lprd:False,rprd:False,enco:False,frtr:True,vitr:True,dbil:False,rmgx:True,rpth:0,hqsc:True,hqlp:False,tesm:0,blpr:0,bsrc:0,bdst:1,culm:2,dpts:2,wrdp:True,dith:2,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:1055,x:33049,y:32739,varname:node_1055,prsc:2|diff-44-OUT,clip-1611-OUT;n:type:ShaderForge.SFN_Tex2d,id:3675,x:32482,y:32694,ptovrint:False,ptlb:main_texture,ptin:_main_texture,varname:node_3675,prsc:2,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:1611,x:32772,y:32934,varname:node_1611,prsc:2|A-3675-A,B-2161-OUT;n:type:ShaderForge.SFN_Slider,id:2161,x:32667,y:33101,ptovrint:False,ptlb:edge_TEK,ptin:_edge_TEK,varname:node_2161,prsc:2,min:0.5,cur:1,max:2;n:type:ShaderForge.SFN_Multiply,id:44,x:32823,y:32670,varname:node_44,prsc:2|A-1400-OUT,B-3675-RGB;n:type:ShaderForge.SFN_Slider,id:1400,x:32719,y:32557,ptovrint:False,ptlb:Bright,ptin:_Bright,varname:node_1400,prsc:2,min:0,cur:2,max:3;proporder:3675-2161-1400;pass:END;sub:END;*/
+/*SF_DATA;ver:1.04;sub:START;pass:START;ps:flbk:,lico:1,lgpr:1,nrmq:1,limd:2,uamb:True,mssp:True,lmpd:True,lprd:False,rprd:False,enco:False,frtr:True,vitr:True,dbil:False,rmgx:True,rpth:0,hqsc:True,hqlp:False,tesm:0,blpr:0,bsrc:0,bdst:1,culm:2,dpts:2,wrdp:True,dith:2,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:1055,x:33049,y:32739,varname:node_1055,prsc:2|diff-3675-RGB,clip-1611-OUT;n:type:ShaderForge.SFN_Tex2d,id:3675,x:32482,y:32694,ptovrint:False,ptlb:main_texture,ptin:_main_texture,varname:node_3675,prsc:2,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:1611,x:32772,y:32934,varname:node_1611,prsc:2|A-3675-A,B-2161-OUT;n:type:ShaderForge.SFN_Slider,id:2161,x:32667,y:33101,ptovrint:False,ptlb:edge_TEK,ptin:_edge_TEK,varname:node_2161,prsc:2,min:0.5,cur:1,max:2;proporder:3675-2161;pass:END;sub:END;*/
 
 Shader "su/su_Zmap_DoubleSide" {
     Properties {
         _main_texture ("main_texture", 2D) = "white" {}
         _edge_TEK ("edge_TEK", Range(0.5, 2)) = 1
-        _Bright ("Bright", Range(0, 3)) = 2
         [HideInInspector]_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
     }
     SubShader {
@@ -39,6 +38,23 @@ Shader "su/su_Zmap_DoubleSide" {
             #pragma multi_compile_fwdbase_fullshadows
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
+            // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
+            float BinaryDither3x3( float value, float2 sceneUVs ) {
+                float3x3 mtx = float3x3(
+                    float3( 3,  7,  4 )/10.0,
+                    float3( 6,  1,  9 )/10.0,
+                    float3( 2,  8,  5 )/10.0
+                );
+                float2 px = floor(_ScreenParams.xy * sceneUVs);
+                int xSmp = fmod(px.x,3);
+                int ySmp = fmod(px.y,3);
+                float3 xVec = 1-saturate(abs(float3(0,1,2) - xSmp));
+                float3 yVec = 1-saturate(abs(float3(0,1,2) - ySmp));
+                float3 pxMult = float3( dot(mtx[0],yVec), dot(mtx[1],yVec), dot(mtx[2],yVec) );
+                return round(value + dot(pxMult, xVec));
+            }
             #ifndef LIGHTMAP_OFF
                 // float4 unity_LightmapST;
                 // sampler2D unity_Lightmap;
@@ -48,7 +64,6 @@ Shader "su/su_Zmap_DoubleSide" {
             #endif
             uniform sampler2D _main_texture; uniform float4 _main_texture_ST;
             uniform float _edge_TEK;
-            uniform float _Bright;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -63,9 +78,10 @@ Shader "su/su_Zmap_DoubleSide" {
                 float3 normalDir : TEXCOORD2;
                 float3 tangentDir : TEXCOORD3;
                 float3 binormalDir : TEXCOORD4;
-                LIGHTING_COORDS(5,6)
+                float4 screenPos : TEXCOORD5;
+                LIGHTING_COORDS(6,7)
                 #ifndef LIGHTMAP_OFF
-                    float2 uvLM : TEXCOORD7;
+                    float2 uvLM : TEXCOORD8;
                 #endif
             };
             VertexOutput vert (VertexInput v) {
@@ -77,6 +93,7 @@ Shader "su/su_Zmap_DoubleSide" {
                 o.posWorld = mul(_Object2World, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.screenPos = o.pos;
                 #ifndef LIGHTMAP_OFF
                     o.uvLM = v.texcoord1 * unity_LightmapST.xy + unity_LightmapST.zw;
                 #endif
@@ -84,7 +101,15 @@ Shader "su/su_Zmap_DoubleSide" {
                 return o;
             }
             fixed4 frag(VertexOutput i) : COLOR {
+                #if UNITY_UV_STARTS_AT_TOP
+                    float grabSign = -_ProjectionParams.x;
+                #else
+                    float grabSign = _ProjectionParams.x;
+                #endif
                 i.normalDir = normalize(i.normalDir);
+                i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
+                i.screenPos.y *= _ProjectionParams.x;
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5;
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.binormalDir, i.normalDir);
 /////// Vectors:
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
@@ -95,7 +120,7 @@ Shader "su/su_Zmap_DoubleSide" {
                 normalDirection *= nSign;
                 
                 float4 _main_texture_var = tex2D(_main_texture,TRANSFORM_TEX(i.uv0, _main_texture));
-                clip((_main_texture_var.a*_edge_TEK) - 0.5);
+                clip( BinaryDither3x3((_main_texture_var.a*_edge_TEK) - 1.5, sceneUVs) );
                 #ifndef LIGHTMAP_OFF
                     float4 lmtex = UNITY_SAMPLE_TEX2D(unity_Lightmap,i.uvLM);
                     #ifndef DIRLIGHTMAP_OFF
@@ -142,7 +167,7 @@ Shader "su/su_Zmap_DoubleSide" {
                     #endif
                 #endif
                 indirectDiffuse += UNITY_LIGHTMODEL_AMBIENT.rgb; // Ambient Light
-                float3 diffuse = (directDiffuse + indirectDiffuse) * (_Bright*_main_texture_var.rgb);
+                float3 diffuse = (directDiffuse + indirectDiffuse) * _main_texture_var.rgb;
 /// Final Color:
                 float3 finalColor = diffuse;
                 return fixed4(finalColor,1);
@@ -169,9 +194,25 @@ Shader "su/su_Zmap_DoubleSide" {
             #pragma multi_compile_fwdadd_fullshadows
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
+            // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
+            float BinaryDither3x3( float value, float2 sceneUVs ) {
+                float3x3 mtx = float3x3(
+                    float3( 3,  7,  4 )/10.0,
+                    float3( 6,  1,  9 )/10.0,
+                    float3( 2,  8,  5 )/10.0
+                );
+                float2 px = floor(_ScreenParams.xy * sceneUVs);
+                int xSmp = fmod(px.x,3);
+                int ySmp = fmod(px.y,3);
+                float3 xVec = 1-saturate(abs(float3(0,1,2) - xSmp));
+                float3 yVec = 1-saturate(abs(float3(0,1,2) - ySmp));
+                float3 pxMult = float3( dot(mtx[0],yVec), dot(mtx[1],yVec), dot(mtx[2],yVec) );
+                return round(value + dot(pxMult, xVec));
+            }
             uniform sampler2D _main_texture; uniform float4 _main_texture_ST;
             uniform float _edge_TEK;
-            uniform float _Bright;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -186,7 +227,8 @@ Shader "su/su_Zmap_DoubleSide" {
                 float3 normalDir : TEXCOORD2;
                 float3 tangentDir : TEXCOORD3;
                 float3 binormalDir : TEXCOORD4;
-                LIGHTING_COORDS(5,6)
+                float4 screenPos : TEXCOORD5;
+                LIGHTING_COORDS(6,7)
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
@@ -197,11 +239,20 @@ Shader "su/su_Zmap_DoubleSide" {
                 o.posWorld = mul(_Object2World, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.screenPos = o.pos;
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
             fixed4 frag(VertexOutput i) : COLOR {
+                #if UNITY_UV_STARTS_AT_TOP
+                    float grabSign = -_ProjectionParams.x;
+                #else
+                    float grabSign = _ProjectionParams.x;
+                #endif
                 i.normalDir = normalize(i.normalDir);
+                i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
+                i.screenPos.y *= _ProjectionParams.x;
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5;
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.binormalDir, i.normalDir);
 /////// Vectors:
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
@@ -212,7 +263,7 @@ Shader "su/su_Zmap_DoubleSide" {
                 normalDirection *= nSign;
                 
                 float4 _main_texture_var = tex2D(_main_texture,TRANSFORM_TEX(i.uv0, _main_texture));
-                clip((_main_texture_var.a*_edge_TEK) - 0.5);
+                clip( BinaryDither3x3((_main_texture_var.a*_edge_TEK) - 1.5, sceneUVs) );
                 float3 lightDirection = normalize(lerp(_WorldSpaceLightPos0.xyz, _WorldSpaceLightPos0.xyz - i.posWorld.xyz,_WorldSpaceLightPos0.w));
                 float3 lightColor = _LightColor0.rgb;
 ////// Lighting:
@@ -221,7 +272,7 @@ Shader "su/su_Zmap_DoubleSide" {
 /////// Diffuse:
                 float NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 float3 directDiffuse = max( 0.0, NdotL) * attenColor;
-                float3 diffuse = directDiffuse * (_Bright*_main_texture_var.rgb);
+                float3 diffuse = directDiffuse * _main_texture_var.rgb;
 /// Final Color:
                 float3 finalColor = diffuse;
                 return fixed4(finalColor * 1,0);
@@ -247,6 +298,23 @@ Shader "su/su_Zmap_DoubleSide" {
             #pragma multi_compile_shadowcollector
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
+            // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
+            float BinaryDither3x3( float value, float2 sceneUVs ) {
+                float3x3 mtx = float3x3(
+                    float3( 3,  7,  4 )/10.0,
+                    float3( 6,  1,  9 )/10.0,
+                    float3( 2,  8,  5 )/10.0
+                );
+                float2 px = floor(_ScreenParams.xy * sceneUVs);
+                int xSmp = fmod(px.x,3);
+                int ySmp = fmod(px.y,3);
+                float3 xVec = 1-saturate(abs(float3(0,1,2) - xSmp));
+                float3 yVec = 1-saturate(abs(float3(0,1,2) - ySmp));
+                float3 pxMult = float3( dot(mtx[0],yVec), dot(mtx[1],yVec), dot(mtx[2],yVec) );
+                return round(value + dot(pxMult, xVec));
+            }
             uniform sampler2D _main_texture; uniform float4 _main_texture_ST;
             uniform float _edge_TEK;
             struct VertexInput {
@@ -256,18 +324,28 @@ Shader "su/su_Zmap_DoubleSide" {
             struct VertexOutput {
                 V2F_SHADOW_COLLECTOR;
                 float2 uv0 : TEXCOORD5;
+                float4 screenPos : TEXCOORD6;
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
                 o.uv0 = v.texcoord0;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.screenPos = o.pos;
                 TRANSFER_SHADOW_COLLECTOR(o)
                 return o;
             }
             fixed4 frag(VertexOutput i) : COLOR {
+                #if UNITY_UV_STARTS_AT_TOP
+                    float grabSign = -_ProjectionParams.x;
+                #else
+                    float grabSign = _ProjectionParams.x;
+                #endif
+                i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
+                i.screenPos.y *= _ProjectionParams.x;
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5;
 /////// Vectors:
                 float4 _main_texture_var = tex2D(_main_texture,TRANSFORM_TEX(i.uv0, _main_texture));
-                clip((_main_texture_var.a*_edge_TEK) - 0.5);
+                clip( BinaryDither3x3((_main_texture_var.a*_edge_TEK) - 1.5, sceneUVs) );
                 SHADOW_COLLECTOR_FRAGMENT(i)
             }
             ENDCG
@@ -291,6 +369,23 @@ Shader "su/su_Zmap_DoubleSide" {
             #pragma multi_compile_shadowcaster
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
+            // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
+            float BinaryDither3x3( float value, float2 sceneUVs ) {
+                float3x3 mtx = float3x3(
+                    float3( 3,  7,  4 )/10.0,
+                    float3( 6,  1,  9 )/10.0,
+                    float3( 2,  8,  5 )/10.0
+                );
+                float2 px = floor(_ScreenParams.xy * sceneUVs);
+                int xSmp = fmod(px.x,3);
+                int ySmp = fmod(px.y,3);
+                float3 xVec = 1-saturate(abs(float3(0,1,2) - xSmp));
+                float3 yVec = 1-saturate(abs(float3(0,1,2) - ySmp));
+                float3 pxMult = float3( dot(mtx[0],yVec), dot(mtx[1],yVec), dot(mtx[2],yVec) );
+                return round(value + dot(pxMult, xVec));
+            }
             uniform sampler2D _main_texture; uniform float4 _main_texture_ST;
             uniform float _edge_TEK;
             struct VertexInput {
@@ -300,18 +395,28 @@ Shader "su/su_Zmap_DoubleSide" {
             struct VertexOutput {
                 V2F_SHADOW_CASTER;
                 float2 uv0 : TEXCOORD1;
+                float4 screenPos : TEXCOORD2;
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
                 o.uv0 = v.texcoord0;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.screenPos = o.pos;
                 TRANSFER_SHADOW_CASTER(o)
                 return o;
             }
             fixed4 frag(VertexOutput i) : COLOR {
+                #if UNITY_UV_STARTS_AT_TOP
+                    float grabSign = -_ProjectionParams.x;
+                #else
+                    float grabSign = _ProjectionParams.x;
+                #endif
+                i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
+                i.screenPos.y *= _ProjectionParams.x;
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5;
 /////// Vectors:
                 float4 _main_texture_var = tex2D(_main_texture,TRANSFORM_TEX(i.uv0, _main_texture));
-                clip((_main_texture_var.a*_edge_TEK) - 0.5);
+                clip( BinaryDither3x3((_main_texture_var.a*_edge_TEK) - 1.5, sceneUVs) );
                 SHADOW_CASTER_FRAGMENT(i)
             }
             ENDCG

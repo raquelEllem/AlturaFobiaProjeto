@@ -37,8 +37,8 @@ Shader "su/su_Zmap_way" {
             #pragma multi_compile_fwdbase_fullshadows
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
-			#pragma glsl
-            // Dithering function, to use with scene UVs (screen pixel coords)
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
             // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
             float BinaryDither3x3( float value, float2 sceneUVs ) {
                 float3x3 mtx = float3x3(
@@ -192,8 +192,8 @@ Shader "su/su_Zmap_way" {
             #pragma multi_compile_fwdadd_fullshadows
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
-			#pragma glsl
-            // Dithering function, to use with scene UVs (screen pixel coords)
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
             // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
             float BinaryDither3x3( float value, float2 sceneUVs ) {
                 float3x3 mtx = float3x3(
@@ -293,8 +293,8 @@ Shader "su/su_Zmap_way" {
             #pragma multi_compile_shadowcollector
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
-			#pragma glsl
-            // Dithering function, to use with scene UVs (screen pixel coords)
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
             // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
             float BinaryDither3x3( float value, float2 sceneUVs ) {
                 float3x3 mtx = float3x3(
@@ -363,8 +363,8 @@ Shader "su/su_Zmap_way" {
             #pragma multi_compile_shadowcaster
             #pragma exclude_renderers flash d3d11_9x 
             #pragma target 3.0
-			#pragma glsl
-            // Dithering function, to use with scene UVs (screen pixel coords)
+            #pragma glsl
+			// Dithering function, to use with scene UVs (screen pixel coords)
             // 3x3 Bayer matrix, based on https://en.wikipedia.org/wiki/Ordered_dithering
             float BinaryDither3x3( float value, float2 sceneUVs ) {
                 float3x3 mtx = float3x3(
