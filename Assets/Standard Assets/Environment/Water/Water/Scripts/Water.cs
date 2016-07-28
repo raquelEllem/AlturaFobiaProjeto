@@ -40,7 +40,7 @@ namespace UnityStandardAssets.Water
         public void OnWillRenderObject()
         {
             if (!enabled || !GetComponent<Renderer>() || !GetComponent<Renderer>().sharedMaterial ||
-                !GetComponent<Renderer>().enabled) 
+                !GetComponent<Renderer>().enabled)
             {
                 return;
             }
