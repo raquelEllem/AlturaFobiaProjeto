@@ -5,8 +5,10 @@ public class AndarCarroCidade : MonoBehaviour {
 
     public Transform Ponto1;
     public Transform Ponto2;
+    public Transform Ponto3;
 
-    public bool check;
+    bool parada1;
+    public bool parada2;
 
     public GameObject Carro;
     NavMeshAgent AuxPosicaoNavMesh;
@@ -30,19 +32,31 @@ public class AndarCarroCidade : MonoBehaviour {
     {
         AuxPosicaoNavMesh.destination = Ponto1.position;
 
-        if (check == true)
+        if (parada1 == true)
         {
             AuxPosicaoNavMesh.destination = Ponto2.position;
         }
+
+        if (parada2 == true)
+        {
+            AuxPosicaoNavMesh.destination = Ponto3.position;
+        }
+
+
+
     }
 
     void OnCollisionEnter(Collision colisao)
     {
         if (colisao.gameObject.tag == "parada1")
         {
-            check = true;
+            parada1 = true;
         }
 
+        if (colisao.gameObject.tag == "parada2")
+        {
+            parada2 = true;
+        }
 
     }
 }

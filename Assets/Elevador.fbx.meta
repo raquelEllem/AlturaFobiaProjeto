@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3690b539236edc54489a5841bd0101c0
-timeCreated: 1468416335
+timeCreated: 1470079138
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -25,34 +25,29 @@ ModelImporter:
     100034: Door_02
     100036: //RootNode
     100038: Elevator_Box
-    100040: Floor_Numbers_01
-    100042: Floor_Numbers_10
-    100044: Glass_00
-    100046: Glass_01
-    100048: Info_Pannel
-    100050: Lights_00
-    100052: Lights_01
-    100054: Num_0
-    100056: Num_0 1
-    100058: Num_1
-    100060: Num_1 1
-    100062: Num_2
-    100064: Num_2 1
-    100066: Num_3
-    100068: Num_3 1
-    100070: Num_4
-    100072: Num_4 1
-    100074: Num_5
-    100076: Num_5 1
-    100078: Num_6
-    100080: Num_6 1
-    100082: Num_7
-    100084: Num_7 1
-    100086: Num_8
-    100088: Num_8 1
-    100090: Num_9
-    100092: Num_9 1
-    100094: Pannel
+    100040: Floor_Num00
+    100042: Floor_Num01
+    100044: Floor_Num010
+    100046: Floor_Num011
+    100048: Floor_Num012
+    100050: Floor_Num013
+    100052: Floor_Num014
+    100054: Floor_Num015
+    100056: Floor_Num02
+    100058: Floor_Num03
+    100060: Floor_Num04
+    100062: Floor_Num05
+    100064: Floor_Num06
+    100066: Floor_Num07
+    100068: Floor_Num08
+    100070: Floor_Num09
+    100072: Floor_Nums
+    100074: Glass_00
+    100076: Glass_01
+    100078: Info_Pannel
+    100080: Lights_00
+    100082: Lights_01
+    100084: Pannel
     400000: Bar_Handle
     400002: Button_00
     400004: Button_01
@@ -73,34 +68,29 @@ ModelImporter:
     400034: Door_02
     400036: //RootNode
     400038: Elevator_Box
-    400040: Floor_Numbers_01
-    400042: Floor_Numbers_10
-    400044: Glass_00
-    400046: Glass_01
-    400048: Info_Pannel
-    400050: Lights_00
-    400052: Lights_01
-    400054: Num_0
-    400056: Num_0 1
-    400058: Num_1
-    400060: Num_1 1
-    400062: Num_2
-    400064: Num_2 1
-    400066: Num_3
-    400068: Num_3 1
-    400070: Num_4
-    400072: Num_4 1
-    400074: Num_5
-    400076: Num_5 1
-    400078: Num_6
-    400080: Num_6 1
-    400082: Num_7
-    400084: Num_7 1
-    400086: Num_8
-    400088: Num_8 1
-    400090: Num_9
-    400092: Num_9 1
-    400094: Pannel
+    400040: Floor_Num00
+    400042: Floor_Num01
+    400044: Floor_Num010
+    400046: Floor_Num011
+    400048: Floor_Num012
+    400050: Floor_Num013
+    400052: Floor_Num014
+    400054: Floor_Num015
+    400056: Floor_Num02
+    400058: Floor_Num03
+    400060: Floor_Num04
+    400062: Floor_Num05
+    400064: Floor_Num06
+    400066: Floor_Num07
+    400068: Floor_Num08
+    400070: Floor_Num09
+    400072: Floor_Nums
+    400074: Glass_00
+    400076: Glass_01
+    400078: Info_Pannel
+    400080: Lights_00
+    400082: Lights_01
+    400084: Pannel
     2300000: Bar_Handle
     2300002: Button_00
     2300004: Button_01
@@ -120,32 +110,28 @@ ModelImporter:
     2300032: Door_01
     2300034: Door_02
     2300036: Elevator_Box
-    2300038: Glass_00
-    2300040: Glass_01
-    2300042: Info_Pannel
-    2300044: Lights_00
-    2300046: Lights_01
-    2300048: Num_0
-    2300050: Num_0 1
-    2300052: Num_1
-    2300054: Num_1 1
-    2300056: Num_2
-    2300058: Num_2 1
-    2300060: Num_3
-    2300062: Num_3 1
-    2300064: Num_4
-    2300066: Num_4 1
-    2300068: Num_5
-    2300070: Num_5 1
-    2300072: Num_6
-    2300074: Num_6 1
-    2300076: Num_7
-    2300078: Num_7 1
-    2300080: Num_8
-    2300082: Num_8 1
-    2300084: Num_9
-    2300086: Num_9 1
-    2300088: Pannel
+    2300038: Floor_Num00
+    2300040: Floor_Num01
+    2300042: Floor_Num010
+    2300044: Floor_Num011
+    2300046: Floor_Num012
+    2300048: Floor_Num013
+    2300050: Floor_Num014
+    2300052: Floor_Num015
+    2300054: Floor_Num02
+    2300056: Floor_Num03
+    2300058: Floor_Num04
+    2300060: Floor_Num05
+    2300062: Floor_Num06
+    2300064: Floor_Num07
+    2300066: Floor_Num08
+    2300068: Floor_Num09
+    2300070: Glass_00
+    2300072: Glass_01
+    2300074: Info_Pannel
+    2300076: Lights_00
+    2300078: Lights_01
+    2300080: Pannel
     3300000: Bar_Handle
     3300002: Button_00
     3300004: Button_01
@@ -165,32 +151,28 @@ ModelImporter:
     3300032: Door_01
     3300034: Door_02
     3300036: Elevator_Box
-    3300038: Glass_00
-    3300040: Glass_01
-    3300042: Info_Pannel
-    3300044: Lights_00
-    3300046: Lights_01
-    3300048: Num_0
-    3300050: Num_0 1
-    3300052: Num_1
-    3300054: Num_1 1
-    3300056: Num_2
-    3300058: Num_2 1
-    3300060: Num_3
-    3300062: Num_3 1
-    3300064: Num_4
-    3300066: Num_4 1
-    3300068: Num_5
-    3300070: Num_5 1
-    3300072: Num_6
-    3300074: Num_6 1
-    3300076: Num_7
-    3300078: Num_7 1
-    3300080: Num_8
-    3300082: Num_8 1
-    3300084: Num_9
-    3300086: Num_9 1
-    3300088: Pannel
+    3300038: Floor_Num00
+    3300040: Floor_Num01
+    3300042: Floor_Num010
+    3300044: Floor_Num011
+    3300046: Floor_Num012
+    3300048: Floor_Num013
+    3300050: Floor_Num014
+    3300052: Floor_Num015
+    3300054: Floor_Num02
+    3300056: Floor_Num03
+    3300058: Floor_Num04
+    3300060: Floor_Num05
+    3300062: Floor_Num06
+    3300064: Floor_Num07
+    3300066: Floor_Num08
+    3300068: Floor_Num09
+    3300070: Glass_00
+    3300072: Glass_01
+    3300074: Info_Pannel
+    3300076: Lights_00
+    3300078: Lights_01
+    3300080: Pannel
     4300000: Elevator_Box
     4300002: Glass_00
     4300004: Glass_01
@@ -216,26 +198,22 @@ ModelImporter:
     4300044: Button_13
     4300046: Button_14
     4300048: Info_Pannel
-    4300050: Num_0
-    4300052: Num_1
-    4300054: Num_2
-    4300056: Num_3
-    4300058: Num_4
-    4300060: Num_5
-    4300062: Num_6
-    4300064: Num_7
-    4300066: Num_8
-    4300068: Num_9
-    4300070: Num_0
-    4300072: Num_1
-    4300074: Num_2
-    4300076: Num_3
-    4300078: Num_4
-    4300080: Num_5
-    4300082: Num_6
-    4300084: Num_7
-    4300086: Num_8
-    4300088: Num_9
+    4300050: Floor_Num00
+    4300052: Floor_Num01
+    4300054: Floor_Num02
+    4300056: Floor_Num03
+    4300058: Floor_Num04
+    4300060: Floor_Num05
+    4300062: Floor_Num06
+    4300064: Floor_Num07
+    4300066: Floor_Num08
+    4300068: Floor_Num09
+    4300070: Floor_Num010
+    4300072: Floor_Num011
+    4300074: Floor_Num012
+    4300076: Floor_Num013
+    4300078: Floor_Num014
+    4300080: Floor_Num015
   materials:
     importMaterials: 1
     materialName: 0
