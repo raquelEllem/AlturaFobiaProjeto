@@ -30,7 +30,11 @@ public class AndarCarroCidade : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        AuxPosicaoNavMesh.destination = Ponto1.position;
+        // se clicar no 'c' carro anda
+        if (Input.GetKeyDown("c"))
+        {
+            AuxPosicaoNavMesh.destination = Ponto1.position;
+        }
 
         if (parada1 == true)
         {

@@ -2,7 +2,17 @@
 using System.Collections;
 
 public class Carro : MonoBehaviour {
-    
+
+    public float valorRotY;
+
+    public Transform PontoCurvaEsquerda1;
+    public Transform PontoCurvaEsquerda2;
+
+    public bool curvaEsq;
+
+    Animation animacaoCurvaEsq;
+ 
+
     // controla as velocidades 
     public float VelocidadeAtual;
     public float VelocidadeAceleracao;
@@ -16,6 +26,7 @@ public class Carro : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        animacaoCurvaEsq = GetComponent<Animation>();
         andar = false;
 	}
 	
@@ -29,7 +40,7 @@ public class Carro : MonoBehaviour {
         //    andar = true;
         //}
 
-        if (Input.GetKeyDown("c"))
+        if (Input.GetKeyDown("v"))
         {
             andar = true;
         }
@@ -50,6 +61,41 @@ public class Carro : MonoBehaviour {
         {
             VelocidadeAtual = VelocidadeMax;
         }
+
+        // CurvaEsquerda(curvaEsq);
+        if (curvaEsq == true)
+        {
+            //animacaoCurvaEsq.Play("curvaEsquerda");
+
+        }
+        
+
+    }
+
+    void OnCollisionEnter(Collision colisao)
+    {
+        if (colisao.gameObject.tag == "curvaEsq")
+        {
+            curvaEsq = true;
+            
+        }
+    }
+
+    void CurvaEsquerda(bool curvaEsquerda)
+    {
+
+        //if (curvaEsq == true)
+        //{
+        //    VelocidadeAtual = VelocidadeAtual + VelocidadeAceleracao * Time.deltaTime;
+        //    transform.Rotate(0, -VelocidadeAtual * 3, 0);
+        //    valorRotY = transform.rotation.y;
+        //    if (valorRotY <= -0.7)
+        //    {
+        //        curvaEsq = false;
+        //    }
+
+        //}
+
 
     }
 }

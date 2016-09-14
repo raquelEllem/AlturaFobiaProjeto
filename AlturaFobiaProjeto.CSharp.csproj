@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\ElevadorSobeTempo.cs" />
     <Compile Include="Assets\Scripts\InitialPosition.cs" />
     <Compile Include="Assets\Scripts\PortaElevador.cs" />
+    <Compile Include="Assets\Scripts\PortaVarandaAp.cs" />
     <Compile Include="Assets\Scripts\UpElevator.cs" />
     <Compile Include="Assets\ZRNAssets\Cars\Scripts\AICarMove.cs" />
   </ItemGroup>
