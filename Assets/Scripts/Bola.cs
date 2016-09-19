@@ -42,11 +42,13 @@ public class Bola : MonoBehaviour {
         {
               //Destroy(gameObject);
             gameObject.GetComponent<Renderer>().materials[0].color = Color.blue;
+            check = true;
             aux = aux + 1; 
             
             //se acertar 3 bolinhas no alvo chama a próxima cena
             if (aux == 3)
             {
+                
                 UnityEngine.SceneManagement.SceneManager.LoadScene("ponte-fase3"); 
             }
         }
