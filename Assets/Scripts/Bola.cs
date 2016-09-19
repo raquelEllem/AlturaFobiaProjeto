@@ -49,7 +49,7 @@ public class Bola : MonoBehaviour {
             if (aux == 3)
             {
                 
-                UnityEngine.SceneManagement.SceneManager.LoadScene("ponte-fase3"); 
+                UnityEngine.SceneManagement.SceneManager.LoadScene("fase3- Oficial"); 
             }
         }
 
