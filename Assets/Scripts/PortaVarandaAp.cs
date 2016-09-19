@@ -10,7 +10,7 @@ public class PortaVarandaAp : MonoBehaviour {
 
     public float distancia;
     public bool abrir;
-    
+    public bool check;
 
     Animation animacaoAbrirPorta;
 
@@ -38,7 +38,13 @@ public class PortaVarandaAp : MonoBehaviour {
             // verifica a distancia entre o usuario e a porta
             distancia = Vector3.Distance(Usuario.transform.position, Portas.transform.position);
 
-            if (distancia > 8 && abrir == false)
+            if (distancia < 3)
+            {
+                check = true;
+            }
+            
+
+            if (distancia < 3 && abrir == false)
             {
                 animacaoAbrirPorta.Play("abrirPortaAp");
                 abrir = true;
