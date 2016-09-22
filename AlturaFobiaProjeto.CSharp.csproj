@@ -80,7 +80,8 @@
     <Compile Include="Assets\Scripts\AndarCarroCidade.cs" />
     <Compile Include="Assets\Scripts\AndarCarroPonte.cs" />
     <Compile Include="Assets\Scripts\AtirarBolas.cs" />
-    <Compile Include="Assets\Scripts\Bola.cs" />
+    <Compile Include="Assets\Scripts\BolaFase2.cs" />
+    <Compile Include="Assets\Scripts\BolaFase3.cs" />
     <Compile Include="Assets\Scripts\Carro.cs" />
     <Compile Include="Assets\Scripts\ControlaBola.cs" />
     <Compile Include="Assets\Scripts\ElevadorSobeTempo.cs" />

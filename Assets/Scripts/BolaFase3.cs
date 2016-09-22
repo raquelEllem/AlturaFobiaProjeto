@@ -1,28 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bola : MonoBehaviour {
+public class BolaFase3 : MonoBehaviour {
+
 
     public Rigidbody rB;
     public int aux;
     public bool check;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         aux = 0;
 
         rB = transform.GetComponent<Rigidbody>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //acelera a 9 m/s para frente
         rB.velocity = transform.forward * 9;
 
         //destroi bolas que não colidem com nada depois de 2 segundos
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 5);
 
         //se tiver qualquer coisa a 1 metro a frente do centro da bola (raycast)
         // a bola é destruida
@@ -30,7 +33,7 @@ public class Bola : MonoBehaviour {
         //{
         //    Destroy(gameObject);
         //}
-	}
+    }
 
     void OnCollisionEnter(Collision colisao)
     {
@@ -40,25 +43,21 @@ public class Bola : MonoBehaviour {
 
         if (colisao.gameObject.tag == "alvo")
         {
-              //Destroy(gameObject);
+            //Destroy(gameObject);
             gameObject.GetComponent<Renderer>().materials[0].color = Color.blue;
             check = true;
-            aux = aux + 1; 
-            
+            aux = aux + 1;
+
             //se acertar 3 bolinhas no alvo chama a próxima cena
             if (aux == 3)
             {
-                
-                UnityEngine.SceneManagement.SceneManager.LoadScene("fase3- Oficial"); 
+                UnityEngine.SceneManagement.SceneManager.LoadScene("fim- Oficial");
             }
         }
 
-      
+
 
     }
-
-
-
 
 }
 
